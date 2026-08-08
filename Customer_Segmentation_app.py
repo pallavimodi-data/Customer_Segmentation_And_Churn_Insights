@@ -81,18 +81,21 @@ selected_gender = st.sidebar.multiselect(
     default=df["Gender"].unique()
 )
 
+age_options = df["AgeGroup"].dropna().astype(str).unique().tolist()
+
 selected_age = st.sidebar.multiselect(
     "Select Age Group",
-    options=df["AgeGroup"].dropna().unique(),
-    default=df["AgeGroup"].dropna().unique()
+    options=age_options,
+    default=age_options
 )
+
+tenure_options = df["TenureGroup"].dropna().astype(str).unique().tolist()
 
 selected_tenure = st.sidebar.multiselect(
     "Select Tenure Group",
-    options=df["TenureGroup"].dropna().unique(),
-    default=df["TenureGroup"].dropna().unique()
+    options=tenure_options,
+    default=tenure_options
 )
-
 # ---------------------------------------------------
 # FILTER DATA
 # ---------------------------------------------------
